@@ -18,7 +18,8 @@ model Post {
   content    String     @db.Text
   thumbnail  String?
   isFeatured Boolean    @default(false)
-  status     PostStatus
+  status     PostStatus @default(DRAFT)
+  tags       String[]
   view       Int        @default(0)
   authorId   String //better Auth
   createdAt  DateTime   @default(now())
