@@ -20,8 +20,25 @@ const createPost = async (req: Request, res: Response) => {
       details: error,
     });
   }
-  }
+};
 
-  export const  PostController ={
-    createPost
+const getAllPost = async (req: Request, res: Response) => {
+  try {
+    const { search } = req.query;
+    const searchPost = typeof search === "string" ? search : undefined;
+    const tags = req.query.tags ? (req.query.tags as string).split(",") : [];
+    const result = await PostService.getAllPosts({ search: searchPost, tags });
+    res.status(200).json(result);
+  } catch (error) {
+    console.log("Full Error ", error);
+    res.status(400).json({
+      error: "Get pots failed",
+      details: error,
+    });
   }
+};
+
+export const PostController = {
+  createPost,
+  getAllPost,
+};

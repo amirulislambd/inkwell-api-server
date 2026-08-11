@@ -13,6 +13,8 @@ app.use(
 
 app.use("/post", router)
 
+app.use("/getAllPosts", router);
+
 app.get('/',(req,res)=>{
     res.send("Bismillahir Rahmanir Rahim")
 })

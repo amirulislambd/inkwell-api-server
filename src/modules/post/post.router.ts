@@ -5,4 +5,6 @@ const router = express.Router();
 
 router.post("/", authHeder(userRole.USER), PostController.createPost);
 
+router.get("/", PostController.getAllPost);
+
 export default router;
