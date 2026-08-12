@@ -7,4 +7,6 @@ router.post("/", authHeder(userRole.USER), PostController.createPost);
 
 router.get("/", PostController.getAllPost);
 
+router.get("/:postId", PostController.getPostById);
+
 export default router;
